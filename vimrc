@@ -54,6 +54,9 @@ Bundle 'scrooloose/syntastic'
 Bundle 'sjl/badwolf'
 colorscheme badwolf
 
+Bundle 'junkblocker/patchreview-vim'
+Bundle 'codegram/vim-codereview'
+
 " ------------
 " VIM SETTINGS
 " ------------
@@ -299,7 +302,6 @@ if &term =~ '256color'
   " See also http://snk.tuxfamily.org/log/vim-256color-bce.html
   set t_ut=
 endif
-
 
 syntax on
 filetype indent plugin on
