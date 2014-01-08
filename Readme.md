@@ -8,13 +8,13 @@ These are the new Codegram vimfiles!
 
 If you trust me, do this:
 
-    rm -fR ~/.vim && git clone https://github.com/codegram/vimfiles.git ~/.vim && rm ~/.vimrc && ln -s ~/.vim/vimrc ~/.vimrc && git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vim +BundleInstall +qa! && clear && echo "Done! :)"
+    rm -fR ~/.vim && git clone git@github.com:oriolgual/vimfiles.git ~/.vim && rm ~/.vimrc && ln -s ~/.vim/vimrc ~/.vimrc && git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vim +BundleInstall +qa! && clear && echo "Done! :)"
 
 ### Manual way
 
 Clone this repo:
 
-    $ git clone https://github.com/codegram/vimfiles.git ~/.vim
+    $ git clone git@github.com:oriolgual/vimfiles.git ~/.vim
     $ rm ~/.vimrc && ln -s ~/.vim/vimrc ~/.vimrc
 
 Install [Vundle](https://github.com/gmarik/vundle):
