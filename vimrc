@@ -51,8 +51,9 @@ Bundle 'scrooloose/syntastic'
 " Bundle 'codegram/vim-haml2slim'
 
 " Default color theme
-Bundle 'sjl/badwolf'
-colorscheme badwolf
+Bundle 'altercation/vim-colors-solarized'
+set background=light
+colorscheme solarized
 
 Bundle 'junkblocker/patchreview-vim'
 Bundle 'codegram/vim-codereview'
