@@ -58,6 +58,8 @@ colorscheme solarized
 Bundle 'junkblocker/patchreview-vim'
 Bundle 'codegram/vim-codereview'
 
+Bundle 'guns/vim-clojure-static'
+
 " ------------
 " VIM SETTINGS
 " ------------
