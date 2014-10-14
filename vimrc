@@ -117,6 +117,7 @@ set tw=79
 set t_Co=256
 set iskeyword-=_
 "set clipboard=unnamed
+set re=1
 
 if has("gui_running")
     set guioptions-=T " no toolbar set guioptions-=m " no menus
