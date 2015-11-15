@@ -19,11 +19,11 @@ let maplocalleader = "."
 " -------
 
 Bundle 'rking/ag.vim'
-Bundle 'thoughtbot/vim-rspec'
+" Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'Townk/vim-autoclose'
-Bundle 'jmartindf/vim-tcomment'
+Bundle 'tomtom/tcomment_vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim'
 
@@ -40,7 +40,7 @@ Bundle 'tpope/vim-fugitive'
 
 " Bundle 'nono/vim-handlebars'
 " Bundle 'kchmck/vim-coffee-script'
-" Bundle 'pangloss/vim-javascript'
+Bundle 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdtree'
 
 " Bundle 'vim-scripts/ctags.vim'
@@ -55,10 +55,16 @@ Bundle 'altercation/vim-colors-solarized'
 set background=light
 colorscheme solarized
 
-Bundle 'junkblocker/patchreview-vim'
-Bundle 'codegram/vim-codereview'
+" Bundle 'junkblocker/patchreview-vim'
+" Bundle 'codegram/vim-codereview'
 
-Bundle 'guns/vim-clojure-static'
+" Bundle 'guns/vim-clojure-static'
+" Bundle 'tpope/vim-fireplace'
+
+" Bundle 'tpope/vim-abolish'
+
+Bundle 'derekwyatt/vim-scala'
+Bundle 'majutsushi/tagbar'
 
 " ------------
 " VIM SETTINGS
@@ -287,10 +293,16 @@ nmap <silent> <leader>p :NERDTreeToggle<cr>%
 nnoremap <leader>' ""yls<c-r>={'"': "'", "'": '"'}[@"]<cr><esc>
 
 " Syntastic
-let g:syntastic_check_on_open=0
-let g:syntastic_echo_current_error=0
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_echo_current_error=1
 let g:syntastic_auto_jump=0
-let g:syntastic_auto_loc_list=0
 
 " --------------------
 " CUSTOM CONFIGURATION
@@ -320,18 +332,5 @@ autocmd FileType ruby
       \   compiler ruby | setl makeprg=ruby\ -wc\ \"%:p\" |
       \ endif
 
-" Rspec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>r :call RunAllSpecs()<CR>
-
-if executable("spring")
-  let g:rspec_command = "!bundle exec spring rspec {spec}"
-endif
-
-if executable("zeus")
-  let g:rspec_command = "!bundle exec zeus rspec {spec}"
-endif
-
-imap jk <Esc>
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
+nnoremap <leader>. :CtrlPTag<cr>
