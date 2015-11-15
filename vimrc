@@ -1,6 +1,6 @@
 " vimrc
-" Author: Codegram
-" Source: https://github.com/codegram/vimfiles
+" Author: Oriol Gual
+" Source: https://github.com/oriolgual/vimfiles
 
 set nocompatible
 
@@ -43,7 +43,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdtree'
 
-" Bundle 'vim-scripts/ctags.vim'
+Bundle 'vim-scripts/ctags.vim'
 Bundle 'mrxd/bufkill.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/syntastic'
@@ -156,7 +156,6 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
-imap jk <ESC>
 nnoremap ; :
 
 " Search
@@ -191,65 +190,6 @@ set pastetoggle=<F2>
 " Git blame
 vmap <leader>gb :Gblame<CR>
 
-" Execute current buffer as ruby
-" map <leader>r :!ruby -I"lib:test" %<cr>
-
-"--------------
-" RUNNING TESTS
-"--------------
-function! RunTests(filename)
-    " Write the file and run tests for the given filename
-    :w
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    if match(a:filename, '\.feature') != -1
-      exec ":!bundle exec spinach " . a:filename
-    else
-      if filereadable("script/test")
-        exec ":!script/test " . a:filename
-      elseif match(a:filename, '_test\.rb') != -1
-        exec ":!ruby -I'lib:test' " . a:filename
-      elseif match(a:filename, '_spec\.rb') != -1
-        exec ":!rspec --color " . a:filename
-      end
-    end
-endfunction
-
-function! SetTestFile()
-    " Set the spec file that tests will be run for.
-    let t:grb_test_file=@%
-endfunction
-
-function! RunTestFile(...)
-    if a:0
-        let command_suffix = a:1
-    else
-        let command_suffix = ""
-    endif
-
-    " Run the tests for the previously-marked file.
-    let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
-    if in_test_file
-        call SetTestFile()
-    elseif !exists("t:grb_test_file")
-        return
-    end
-    call RunTests(t:grb_test_file . command_suffix)
-endfunction
-
-function! RunNearestTest()
-    let spec_line_number = line('.')
-
-    call RunTestFile(":" . spec_line_number)
-endfunction
-
-map <leader>t :call RunTestFile()<CR>
-map <leader>T :call RunNearestTest()<CR>
-
 " ----------------
 " PLUG-IN SETTINGS
 " ----------------
@@ -262,7 +202,7 @@ let g:Powerline_cache_enabled = 1
 nmap <leader>a :Ag
 " Rotating among results
 map <C-n> :cn<CR>
-map <C-p> :cp<CR>
+" map <C-p> :cp<CR>
 
 " TComment
 map <Leader>co :TComment<CR>
@@ -274,7 +214,9 @@ let g:AutoCloseProtectedRegions = ["Character"]
 " Ctags
 " You can use Ctrl-] to jump to a function.... Ctrl-p will jump back
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-" map <C-p> :pop<CR>
+map <C-p> :pop<CR>
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
+nnoremap <leader>. :CtrlPTag<cr>
 
 " You can cycle through multiple function definitions using
 " these mappings. This maps to my windows key + left/right arrows
@@ -331,6 +273,3 @@ autocmd FileType ruby
       \ else |
       \   compiler ruby | setl makeprg=ruby\ -wc\ \"%:p\" |
       \ endif
-
-nnoremap <silent> <Leader>b :TagbarToggle<CR>
-nnoremap <leader>. :CtrlPTag<cr>
