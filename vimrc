@@ -25,7 +25,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'Townk/vim-autoclose'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'bling/vim-airline'
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 
 " Bundle 'mattn/webapi-vim'
 " Bundle 'mattn/gist-vim'
@@ -58,8 +58,8 @@ colorscheme solarized
 " Bundle 'junkblocker/patchreview-vim'
 " Bundle 'codegram/vim-codereview'
 
-" Bundle 'guns/vim-clojure-static'
-" Bundle 'tpope/vim-fireplace'
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace'
 
 " Bundle 'tpope/vim-abolish'
 
