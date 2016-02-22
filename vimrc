@@ -47,6 +47,10 @@ Bundle 'vim-scripts/ctags.vim'
 Bundle 'mrxd/bufkill.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/syntastic'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'benmills/vimux'
+Bundle 'spiegela/vimix'
+let g:vimix_map_keys = 1
 
 " Bundle 'codegram/vim-haml2slim'
 
