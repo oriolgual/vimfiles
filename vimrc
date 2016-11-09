@@ -119,7 +119,7 @@ set wildmode=list:longest
 set visualbell
 set cursorline
 set ttyfast
-set wildignore+=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.gitkeep,.DS_Store,*.log
+set wildignore+=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.gitkeep,.DS_Store,*.log,node_modules/*
 set textwidth=79
 set formatoptions=n
 set colorcolumn=79
@@ -229,7 +229,7 @@ map <F9> :tprev<CR>
 
 " Ctrl-p
 let g:ctrlp_map = '<leader>o'
-let g:ctrlp_custom_ignore = '\v[\/](doc|tmp|log|coverage)$'
+let g:ctrlp_custom_ignore = '\v[\/](doc|tmp|log|coverage|fixtures|node_modules)$'
 
 " NERDtree
 nmap <silent> <leader>p :NERDTreeToggle<cr>%
